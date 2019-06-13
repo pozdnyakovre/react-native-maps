@@ -216,12 +216,11 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
         coordinate.putDouble("latitude", location.getLatitude());
         coordinate.putDouble("longitude", location.getLongitude());
         coordinate.putDouble("altitude", location.getAltitude());
-        coordinate.putDouble("timestamp", location.getTime());
         coordinate.putDouble("accuracy", location.getAccuracy());
         coordinate.putDouble("speed", location.getSpeed());
         if(android.os.Build.VERSION.SDK_INT >= 18){
         coordinate.putBoolean("isFromMockProvider", location.isFromMockProvider());
-        }
+        }         
 
         event.putMap("coordinate", coordinate);
 
@@ -625,6 +624,10 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
       AirMapLocalTile localTileView = (AirMapLocalTile) child;
       localTileView.addToMap(map);
       features.add(index, localTileView);
+    } else if (child instanceof AirMapMbTile) {
+      AirMapMbTile mbTileView = (AirMapMbTile) child;
+      mbTileView.addToMap(map);
+      features.add(index, mbTileView);
     } else if (child instanceof AirMapOverlay) {
       AirMapOverlay overlayView = (AirMapOverlay) child;
       overlayView.addToMap(map);
@@ -1244,3 +1247,7 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
     return airMarker;
   }
 }
+
+
+
+

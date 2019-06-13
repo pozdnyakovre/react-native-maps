@@ -25,11 +25,16 @@
 #import "AIRMapUrlTile.h"
 #import "AIRMapWMSTile.h"
 #import "AIRMapLocalTile.h"
+#import "AIRMapMbTile.h"
 #import "AIRMapSnapshot.h"
 #import "RCTConvert+AirMap.h"
+//<<<<<<< HEAD
 #import "AIRMapOverlay.h"
 #import "AIRWeakTimerReference.h"
 #import "AIRWeakMapReference.h"
+//=======
+
+//>>>>>>> a32db0fc556b60b8336d5a3d4649b9a0a9028206
 #import <MapKit/MapKit.h>
 
 static NSString *const RCTMapViewKey = @"MapView";
@@ -83,7 +88,6 @@ RCT_EXPORT_VIEW_PROPERTY(showsCompass, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(showsScale, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(showsTraffic, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(zoomEnabled, BOOL)
-RCT_EXPORT_VIEW_PROPERTY(kmlSrc, NSString)
 RCT_EXPORT_VIEW_PROPERTY(rotateEnabled, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(scrollEnabled, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(pitchEnabled, BOOL)
@@ -476,6 +480,7 @@ RCT_EXPORT_METHOD(takeSnapshot:(nonnull NSNumber *)reactTag
     }];
 }
 
+//<<<<<<< HEAD
 RCT_EXPORT_METHOD(pointForCoordinate:(nonnull NSNumber *)reactTag
                   coordinate: (NSDictionary *)coordinate
                   resolver: (RCTPromiseResolveBlock)resolve
@@ -545,6 +550,9 @@ RCT_EXPORT_METHOD(coordinateForPoint:(nonnull NSNumber *)reactTag
         }
     }];
 }
+
+//=======
+//>>>>>>> a32db0fc556b60b8336d5a3d4649b9a0a9028206
 
 #pragma mark Take Snapshot
 - (void)takeMapSnapshot:(AIRMap *)mapView
@@ -692,6 +700,7 @@ RCT_EXPORT_METHOD(coordinateForPoint:(nonnull NSNumber *)reactTag
                 }
             }
         }
+//<<<<<<< HEAD
 
         if ([overlay isKindOfClass:[AIRMapOverlay class]]) {
             AIRMapOverlay *imageOverlay = (AIRMapOverlay*) overlay;
@@ -710,6 +719,8 @@ RCT_EXPORT_METHOD(coordinateForPoint:(nonnull NSNumber *)reactTag
             }
         }
 
+//=======
+//>>>>>>> a32db0fc556b60b8336d5a3d4649b9a0a9028206
     }
 
     if (nearestDistance <= maxMeters) {
@@ -793,8 +804,8 @@ RCT_EXPORT_METHOD(coordinateForPoint:(nonnull NSNumber *)reactTag
         return ((AIRMapWMSTile *)overlay).renderer;
     } else if ([overlay isKindOfClass:[AIRMapLocalTile class]]) {
         return ((AIRMapLocalTile *)overlay).renderer;
-    } else if ([overlay isKindOfClass:[AIRMapOverlay class]]) {
-        return ((AIRMapOverlay *)overlay).renderer;
+    } else if ([overlay isKindOfClass:[AIRMapMbTile class]]) {
+        return ((AIRMapMbTile *)overlay).renderer;
     } else if([overlay isKindOfClass:[MKTileOverlay class]]) {
         return [[MKTileOverlayRenderer alloc] initWithTileOverlay:overlay];
     } else {
