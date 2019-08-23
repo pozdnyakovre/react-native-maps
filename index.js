@@ -10,7 +10,7 @@ import Overlay from './lib/components/MapOverlay.js';
 //import MapView from './lib/components/MapView';
 //>>>>>>> a32db0fc556b60b8336d5a3d4649b9a0a9028206
 
-export { default as Marker } from './lib/components/MapMarker.js';
+//export { default as Marker } from './lib/components/MapMarker.js';
 export { default as Polyline } from './lib/components/MapPolyline.js';
 export { default as Heatmap } from './lib/components/MapHeatmap.js';
 export { default as Polygon } from './lib/components/MapPolygon.js';
@@ -19,7 +19,7 @@ export { default as UrlTile } from './lib/components/MapUrlTile.js';
 export { default as WMSTile } from './lib/components/MapWMSTile.js';
 export { default as LocalTile } from './lib/components/MapLocalTile.js';
 export { default as MbTile } from './lib/components/MapMbTile.js';
-export { default as Overlay } from './lib/components/MapOverlay.js';
+//export { default as Overlay } from './lib/components/MapOverlay.js';
 export { default as Callout } from './lib/components/MapCallout.js';
 export {
   default as CalloutSubview,
