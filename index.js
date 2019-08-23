@@ -26,7 +26,7 @@ export {
 } from './lib/components/MapCalloutSubview.js';
 export { default as AnimatedRegion } from './lib/components/AnimatedRegion.js';
 //<<<<<<< HEAD
-export { Animated, ProviderPropType, MAP_TYPES } from './lib/components/MapView.js';
+//export { Animated, ProviderPropType, MAP_TYPES } from './lib/components/MapView.js';
 //=======
 export { default as Geojson } from './lib/components/Geojson.js';
 
