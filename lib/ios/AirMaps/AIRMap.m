@@ -557,6 +557,11 @@ RCT_EXPORT_METHOD(coordinateForPoint:(NSDictionary *)point resolver: (RCTPromise
 }
 
 - (void)cacheViewIfNeeded {
+    // https://github.com/react-native-community/react-native-maps/issues/3100
+    // Do nothing if app is not active
+    if ([[UIApplication sharedApplication] applicationState] != UIApplicationStateActive) {
+        return;
+    }
     if (self.hasShownInitialLoading) {
         if (!self.cacheEnabled) {
             if (_cacheImageView != nil) {
@@ -610,6 +615,14 @@ RCT_EXPORT_METHOD(coordinateForPoint:(NSDictionary *)point resolver: (RCTPromise
 - (void)setLegalLabelInsets:(UIEdgeInsets)legalLabelInsets {
   _legalLabelInsets = legalLabelInsets;
   [self updateLegalLabelInsets];
+}
+
+- (void)setMapPadding:(UIEdgeInsets)mapPadding {
+  self.layoutMargins = mapPadding;
+}
+
+- (UIEdgeInsets)mapPadding {
+  return self.layoutMargins;
 }
 
 - (void)beginLoading {
